@@ -1,8 +1,10 @@
+import math
+import time
+
+import pyperclip
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
-import math
-import pyperclip
+
 
 def findCSS (selector):
     return browser.find_element(By.CSS_SELECTOR, selector)

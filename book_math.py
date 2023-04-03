@@ -1,18 +1,18 @@
+import math
+import time
+
+import pyperclip
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
-import math
-import pyperclip
+from selenium.webdriver.support.ui import WebDriverWait
 
-	
 try:
     link = "http://suninjuly.github.io/explicit_wait2.html"
     browser = webdriver.Chrome()
-	
+
     browser.get(link)
-	
+
     WebDriverWait(browser, 15).until(EC.text_to_be_present_in_element((By.ID, "price"), "$100"))
     button = browser.find_element(By.CSS_SELECTOR, "#book")
     button.click()
@@ -36,3 +36,4 @@ try:
 finally:
     time.sleep(10)
     browser.quit()
+    

@@ -1,7 +1,8 @@
 import math
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 
 link = "http://suninjuly.github.io/find_link_text"
 searchLink = str(math.ceil(math.pow(math.pi, math.e)*10000))

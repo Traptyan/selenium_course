@@ -1,7 +1,9 @@
+import math
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
-import math
+
 
 def scroll(element):
 	browser.execute_script("return arguments[0].scrollIntoView(true);", element)
