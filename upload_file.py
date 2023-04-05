@@ -2,17 +2,19 @@ import os
 import time
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+
+from findby import FindElement
 
 
 def findcss(selector):
-    return browser.find_element(By.CSS_SELECTOR, selector)
+    return FindElement.css(a, selector)
 
 
 try:
     link = "http://suninjuly.github.io/file_input.html"
     browser = webdriver.Chrome()
     browser.get(link)
+    a = FindElement(browser)
 
     first_name = findcss("[name='firstname']")
     first_name.send_keys("Sanyara")

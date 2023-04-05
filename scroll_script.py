@@ -2,7 +2,8 @@ import math
 import time
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+
+from findby import FindElement
 
 
 def scroll(element):
@@ -13,24 +14,25 @@ try:
     link = "http://suninjuly.github.io/execute_script.html"
     browser = webdriver.Chrome()
     browser.get(link)
+    a = FindElement(browser)
 
-    x_element = browser.find_element(By.CSS_SELECTOR, "#input_value")
+    x_element = FindElement.css(a, "#input_value")
     x = x_element.text
 
     answer = math.log(abs(12 * math.sin(int(x))))
 
-    output = browser.find_element(By.CSS_SELECTOR, "#answer")
+    output = FindElement.css(a, "#answer")
     output.send_keys(str(answer))
 
-    checkbox = browser.find_element(By.CSS_SELECTOR, "#robotCheckbox")
+    checkbox = FindElement.css(a, "#robotCheckbox")
     scroll(checkbox)
     checkbox.click()
 
-    radiobutton = browser.find_element(By.CSS_SELECTOR, "#robotsRule")
+    radiobutton = FindElement.css(a, "#robotsRule")
     scroll(radiobutton)
     radiobutton.click()
 
-    button = browser.find_element(By.CSS_SELECTOR, ".btn")
+    button = FindElement.css(a, ".btn")
     scroll(button)
     button.click()
 

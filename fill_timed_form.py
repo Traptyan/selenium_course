@@ -3,11 +3,14 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from findby import FindElement
+
 link = "http://suninjuly.github.io/simple_form_find_task.html"
 
 try:
     browser = webdriver.Chrome()
     browser.get(link)
+    a = FindElement(browser)
 
     input1 = browser.find_element(By.TAG_NAME, "input")
     input1.send_keys("Ivan")
@@ -17,7 +20,7 @@ try:
     input3.send_keys("Smolensk")
     input4 = browser.find_element(By.ID, "country")
     input4.send_keys("Russia")
-    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
+    button = FindElement.css(a, "button.btn")
     button.click()
 
 finally:

@@ -3,17 +3,19 @@ import time
 
 import pyperclip
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+
+from findby import FindElement
 
 
 def findCSS(selector):
-    return browser.find_element(By.CSS_SELECTOR, selector)
+    return FindElement.css(a, selector)
 
 
 try:
     link = "http://suninjuly.github.io/redirect_accept.html"
     browser = webdriver.Chrome()
     browser.get(link)
+    a = FindElement(browser)
 
     start_btn = findCSS(".btn")
     start_btn.click()
@@ -28,7 +30,7 @@ try:
 
     answer = math.log(abs(12 * math.sin(int(x))))
 
-    output = browser.find_element(By.CSS_SELECTOR, "#answer")
+    output = FindElement.css(a, "#answer")
     output.send_keys(str(answer))
 
     button = findCSS(".btn")

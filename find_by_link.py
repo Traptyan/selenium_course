@@ -4,12 +4,15 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from findby import FindElement
+
 link = "http://suninjuly.github.io/find_link_text"
 searchLink = str(math.ceil(math.pow(math.pi, math.e) * 10000))
 
 try:
     browser = webdriver.Chrome()
     browser.get(link)
+    a = FindElement(browser)
 
     link = browser.find_element(By.LINK_TEXT, searchLink)
     link.click()
@@ -22,7 +25,7 @@ try:
     input3.send_keys("Smolensk")
     input4 = browser.find_element(By.ID, "country")
     input4.send_keys("Russia")
-    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
+    button = FindElement.css(a, "button.btn")
     button.click()
 
 

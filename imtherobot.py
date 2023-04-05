@@ -2,7 +2,8 @@ import math
 import time
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+
+from findby import FindElement
 
 
 def calc(x):
@@ -13,22 +14,23 @@ try:
     link = "https://suninjuly.github.io/math.html"
     browser = webdriver.Chrome()
     browser.get(link)
+    a = FindElement(browser)
 
-    x_element = browser.find_element(By.CSS_SELECTOR, "#input_value")
+    x_element = FindElement.css(a, "#input_value")
     x = x_element.text
 
     answer = calc(x)
 
-    answer_field = browser.find_element(By.CSS_SELECTOR, "#answer")
+    answer_field = FindElement.css(a, "#answer")
     answer_field.send_keys(answer)
 
-    checkbox = browser.find_element(By.CSS_SELECTOR, "#robotCheckbox")
+    checkbox = FindElement.css(a, "#robotCheckbox")
     checkbox.click()
 
-    radiobutton = browser.find_element(By.CSS_SELECTOR, "#robotsRule")
+    radiobutton = FindElement.css(a, "#robotsRule")
     radiobutton.click()
 
-    submit = browser.find_element(By.CSS_SELECTOR, ".btn")
+    submit = FindElement.css(a, ".btn")
     submit.click()
 
 finally:

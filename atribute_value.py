@@ -2,7 +2,8 @@ import math
 import time
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+
+from findby import FindElement
 
 
 def calc(x):
@@ -12,23 +13,24 @@ def calc(x):
 try:
     link = "http://suninjuly.github.io/get_attribute.html"
     browser = webdriver.Chrome()
+    a = FindElement(browser)
     browser.get(link)
 
-    treasure_element = browser.find_element(By.CSS_SELECTOR, "#treasure")
+    treasure_element = FindElement.css(a, "#treasure")
     x = treasure_element.get_attribute("valuex")
 
     answer = calc(x)
 
-    answer_field = browser.find_element(By.CSS_SELECTOR, "#answer")
+    answer_field = FindElement.css(a, "#answer")
     answer_field.send_keys(answer)
 
-    checkbox = browser.find_element(By.CSS_SELECTOR, "#robotCheckbox")
+    checkbox = FindElement.css(a, "#robotCheckbox")
     checkbox.click()
 
-    radiobutton = browser.find_element(By.CSS_SELECTOR, "#robotsRule")
+    radiobutton = FindElement.css(a, "#robotsRule")
     radiobutton.click()
 
-    submit = browser.find_element(By.CSS_SELECTOR, ".btn")
+    submit = FindElement.css(a, ".btn")
     submit.click()
 
 finally:
