@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-try: 
+try:
     link = "http://suninjuly.github.io/registration1.html"
     browser = webdriver.Chrome()
     browser.get(link)
@@ -15,7 +15,7 @@ try:
     input2.send_keys("Petrov")
     input3 = browser.find_element(By.CSS_SELECTOR, 'input.third:required')
     input3.send_keys("Smolensk")
-    
+
     # Отправляем заполненную форму
     button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()

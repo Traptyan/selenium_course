@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 link = "http://suninjuly.github.io/find_link_text"
-searchLink = str(math.ceil(math.pow(math.pi, math.e)*10000))
+searchLink = str(math.ceil(math.pow(math.pi, math.e) * 10000))
 
 try:
     browser = webdriver.Chrome()
@@ -24,9 +24,8 @@ try:
     input4.send_keys("Russia")
     button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()
-    
+
 
 finally:
     time.sleep(30)
     browser.quit()
-
